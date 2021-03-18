@@ -1,12 +1,12 @@
 {
   "name": "example",
   "version": "1.0.0",
+  "homepage": "https://usertive.github.io/react-fluid-animation",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "yarn run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

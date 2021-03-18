@@ -9,6 +9,7 @@
     "webgl"
   ],
   "author": "usertive",
+  "homepage": "https://github.com/usertive/react-fluid-animation",
   "license": "MIT",
   "repository": "usertive/react-fluid-animation",
   "engines": {
@@ -24,9 +25,7 @@
   "source": "src/index.js",
   "scripts": {
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "build": "microbundle-crl --no-compress --format modern,cjs"
   },
   "browserslist": {
     "production": [
