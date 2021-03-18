@@ -110,7 +110,7 @@ export default class FluidAnimation {
     this._pointers[0].y = e.offsetY
   }
 
-  onMouseDown = () => {
+  start = () => {
     this._pointers[0].down = true
     this._pointers[0].color = [
       Math.random() + 0.2,
@@ -119,8 +119,16 @@ export default class FluidAnimation {
     ]
   }
 
-  onMouseUp = () => {
+  end = () => {
     this._pointers[0].down = false
+  }
+
+  changeColor = () => {
+    this._pointers[0].color = [
+      Math.random() + 0.2,
+      Math.random() + 0.2,
+      Math.random() + 0.2
+    ]
   }
 
   onTouchStart = (e) => {

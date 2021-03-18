@@ -1,0 +1,25 @@
+.root {
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-family: Quicksand, 'Helvetica Neue', sans-serif;
+  pointer-events: none;
+}
+
+.h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}

@@ -1,3 +1,4 @@
+import "normalize.css/normalize.css";
 import "./index.css";
 
 import ReactDOM from "react-dom";

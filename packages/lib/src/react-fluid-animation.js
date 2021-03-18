@@ -23,21 +23,22 @@ class ReactFluidAnimation extends Component {
     style: { }
   }
 
-  componentWillReceiveProps(props) {
-    this._onResize()
-
-    if (props.config) {
-      this._animation.config = {
-        ...props.config,
-        defaultConfig
-      }
-    }
-  }
-
   componentDidMount() {
     window.addEventListener('resize', this._onResize)
     this._reset(this.props)
     this._tick()
+    this._animation.start();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this._onResize()
+
+    if (this.props.config) {
+      this._animation.config = {
+        ...this.props.config,
+        defaultConfig
+      }
+    }
   }
 
   componentWillUnmount() {
@@ -71,9 +72,10 @@ class ReactFluidAnimation extends Component {
       >
         <canvas
           ref={this._canvasRef}
-          onMouseDown={this._onMouseDown}
+          onMouseEnter={this._onMouseEnter}
           onMouseMove={this._onMouseMove}
-          onMouseUp={this._onMouseUp}
+          onMouseLeave={this.onMouseLeave}
+          onClick={this._onMouseClick}
           onTouchStart={this._onTouchStart}
           onTouchMove={this._onTouchMove}
           onTouchEnd={this._onTouchEnd}
@@ -94,9 +96,9 @@ class ReactFluidAnimation extends Component {
     this._canvas = ref
   }
 
-  _onMouseDown = (event) => {
+  _onMouseEnter = (event) => {
     event.preventDefault()
-    this._animation.onMouseDown(event.nativeEvent)
+    this._animation.start()
   }
 
   _onMouseMove = (event) => {
@@ -104,9 +106,14 @@ class ReactFluidAnimation extends Component {
     this._animation.onMouseMove(event.nativeEvent)
   }
 
-  _onMouseUp = (event) => {
+  onMouseLeave = (event) => {
     event.preventDefault()
-    this._animation.onMouseUp(event.nativeEvent)
+    this._animation.end()
+  }
+
+  _onMouseClick = (event) => {
+    event.preventDefault();
+    this._animation.changeColor();
   }
 
   _onTouchStart = (event) => {
