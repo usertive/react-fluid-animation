@@ -9,6 +9,7 @@ declare module '@usertive/react-fluid-animation' {
     pressureIterations: number;
     curl: number;
     splatRadius: number;
+    colorsPool: string[];
   }
   export class Animation {
     get config(): IAnimationConfig;
