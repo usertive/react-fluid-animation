@@ -1,4 +1,4 @@
-# react-fluid-animation ([demo](https://transitive-bullshit.github.io/react-fluid-animation/))
+# react-fluid-animation ([demo](https://usertive.github.io/react-fluid-animation/))
 
 > Fluid media simulation for React powered by WebGL.
 

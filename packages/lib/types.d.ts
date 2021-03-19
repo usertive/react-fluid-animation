@@ -19,7 +19,7 @@ declare module '@usertive/react-fluid-animation' {
   }
   export interface IFluidAnimationProps {
     content?: string;
-    config?: IAnimationConfig;
+    config?: Partial<IAnimationConfig>;
     style?: object;
     animationRef?: (animation: Animation) => void,
     size?: {
