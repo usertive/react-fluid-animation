@@ -35,8 +35,8 @@ class ReactFluidAnimation extends Component {
 
     if (this.props.config) {
       this._animation.config = {
+        ...defaultConfig,
         ...this.props.config,
-        defaultConfig
       }
     }
   }

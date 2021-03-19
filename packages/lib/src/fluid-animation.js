@@ -39,11 +39,10 @@ export default class FluidAnimation {
     } = opts;
 
     this._canvas = canvas;
-    this._config = {
+    this.config = {
       ...defaultConfig,
       ...config
     };
-    this._config.colorsPool = this._config.colorsPool.map((color) => Color(color).rgb().array().map(num  => num / 255));
 
     this._pointers = [new Pointer()];
     this._splatStack = [];
@@ -66,6 +65,7 @@ export default class FluidAnimation {
 
   set config(config) {
     this._config = config;
+    this._config.colorsPool = this._config.colorsPool.map((color) => Color(color).rgb().array().map(num  => num / 255));
   }
 
   get width() {

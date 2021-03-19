@@ -2,7 +2,7 @@ import DatGui, { DatButton, DatNumber, DatSelect } from "react-dat-gui";
 import { IAnimationConfig } from "@usertive/react-fluid-animation";
 
 export interface IGUIProps {
-  config: IAnimationConfig;
+  config: Partial<IAnimationConfig>;
   updateConfig: (newConfig: Partial<IAnimationConfig>) => void;
   resetConfig: () => void;
   makeRandomSplats: () => void;
