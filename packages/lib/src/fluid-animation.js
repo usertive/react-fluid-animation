@@ -65,7 +65,7 @@ export default class FluidAnimation {
 
   set config(config) {
     this._config = config;
-    this._config.colorsPool = this._config.colorsPool.map((color) => Color(color).rgb().array().map(num  => num / 255));
+    this._config.colorsPool = this._config.colorsPool.map((color) => Color(color).rgb().array().map(num  => (num / 255) + 0.2));
   }
 
   get width() {
