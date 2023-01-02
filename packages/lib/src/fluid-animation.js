@@ -84,11 +84,16 @@ export default class FluidAnimation {
     this._splatStack.push(Array.isArray(splats) ? splats : [splats]);
   }
 
-  addRandomSplats(count) {
+  addRandomSplats(count,useColorsPool=false) {
     const splats = [];
 
     for (let i = 0; i < count; ++i) {
-      splats.push(this._getRandomSplat());
+      if (useColorsPool) {
+        splats.push(this._getRandomSplat(true));
+      } else {
+        splats.push(this._getRandomSplat());
+
+      }
     }
 
     this.addSplats(splats);
@@ -336,8 +341,12 @@ export default class FluidAnimation {
     }
   }
 
-  _getRandomSplat() {
-    const color = [Math.random() * 10, Math.random() * 10, Math.random() * 10];
+  _getRandomSplat(useColorsPool=false) {
+    let color;
+    if (useColorsPool) 
+       color = this.config.colorsPool[Math.floor(Math.random() * this.config.colorsPool.length)]
+    else 
+      color = [Math.random() * 10, Math.random() * 10, Math.random() * 10];
     const x = this._canvas.width * Math.random();
     const y = this._canvas.height * Math.random();
     const dx = 1000 * (Math.random() - 0.5);
